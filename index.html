@@ -3,410 +3,1345 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="theme-color" content="#08080c">
-  <meta name="description" content="Vibe Studio — сучасні сайти під ключ для бізнесу, брендів та особистих проєктів.">
-  <meta name="robots" content="index, follow">
-  <title>Vibe Studio — сучасні сайти під ключ</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Manrope:wght@600;700;800&display=swap" rel="stylesheet">
+
+  <title>Vibe Studio — Сайти під ключ</title>
+  <meta name="description" content="Vibe Studio — створення сучасних сайтів для бізнесу та особистих проєктів.">
 
   <style>
-    :root{
-      --bg:#07070a;
-      --bg2:#0d0d12;
-      --card:rgba(255,255,255,.055);
-      --card2:rgba(255,255,255,.075);
-      --line:rgba(255,255,255,.10);
-      --text:#f7f7fb;
-      --muted:#a6a6b2;
-      --purple:#8b5cf6;
-      --pink:#ec4899;
-      --red:#ef4444;
-      --max:1180px;
-      --radius:24px;
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
     }
-    *{box-sizing:border-box;margin:0;padding:0}
-    html{scroll-behavior:smooth}
-    body{
-      font-family:Inter,Arial,sans-serif;
-      background:
-        radial-gradient(circle at 15% 0%,rgba(139,92,246,.16),transparent 30%),
-        radial-gradient(circle at 90% 15%,rgba(236,72,153,.11),transparent 28%),
-        var(--bg);
-      color:var(--text);
-      line-height:1.6;
-      overflow-x:hidden;
+
+    html {
+      scroll-behavior: smooth;
     }
-    body:before{
-      content:"";position:fixed;inset:0;pointer-events:none;z-index:-2;
-      background-image:linear-gradient(rgba(255,255,255,.025) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.025) 1px,transparent 1px);
-      background-size:70px 70px;
-      mask-image:linear-gradient(to bottom,black,transparent 85%);
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: #07070a;
+      color: #fff;
+      line-height: 1.6;
+      overflow-x: hidden;
     }
-    ::selection{background:rgba(139,92,246,.45);color:#fff}
-    a{color:inherit;text-decoration:none}
-    img{max-width:100%;display:block}
-    button,input,textarea{font:inherit}
-    .container{width:min(var(--max),calc(100% - 40px));margin:auto}
-    .ambient{position:fixed;pointer-events:none;filter:blur(70px);opacity:.42;z-index:-1;border-radius:50%}
-    .ambient.a{width:280px;height:280px;background:var(--purple);left:-130px;top:280px}
-    .ambient.b{width:250px;height:250px;background:var(--pink);right:-120px;top:900px}
 
-    header{
-      position:fixed;top:16px;left:0;right:0;z-index:100;
+    body::selection {
+      background: #a855f7;
+      color: #fff;
     }
-    .nav{
-      width:min(var(--max),calc(100% - 30px));margin:auto;
-      min-height:66px;padding:10px 12px 10px 20px;
-      display:flex;align-items:center;justify-content:space-between;gap:20px;
-      background:rgba(10,10,14,.72);border:1px solid var(--line);
-      backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);
-      border-radius:22px;box-shadow:0 18px 60px rgba(0,0,0,.28);
+
+    a {
+      color: inherit;
+      text-decoration: none;
     }
-    .logo{font-family:Manrope;font-weight:800;font-size:20px;letter-spacing:-.7px}
-    .logo span{background:linear-gradient(90deg,#fff,var(--purple),var(--pink));-webkit-background-clip:text;background-clip:text;color:transparent}
-    .links{display:flex;align-items:center;gap:25px;color:#bdbdc8;font-size:14px;font-weight:600}
-    .links a{transition:.25s}
-    .links a:hover{color:#fff}
-    .nav-cta,.btn{
-      display:inline-flex;align-items:center;justify-content:center;gap:9px;
-      border:1px solid rgba(255,255,255,.12);cursor:pointer;
-      border-radius:14px;font-weight:700;transition:transform .25s,box-shadow .25s,border-color .25s;
+
+    button,
+    input,
+    select,
+    textarea {
+      font: inherit;
     }
-    .nav-cta{padding:11px 16px;background:#fff;color:#08080b;font-size:13px}
-    .nav-cta:hover,.btn:hover{transform:translateY(-2px)}
-    .menu-btn{display:none;background:none;color:#fff;border:0;font-size:25px;cursor:pointer}
 
-    .hero{min-height:100vh;padding:170px 0 100px;display:flex;align-items:center}
-    .hero-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:70px;align-items:center}
-    .eyebrow{
-      display:inline-flex;align-items:center;gap:9px;padding:8px 12px;
-      border:1px solid var(--line);border-radius:999px;background:rgba(255,255,255,.045);
-      color:#d5d5dd;font-size:12px;font-weight:700;margin-bottom:24px;
+    .page {
+      position: relative;
+      overflow: hidden;
     }
-    .dot{width:7px;height:7px;border-radius:50%;background:#a78bfa;box-shadow:0 0 16px #a78bfa}
-    h1{
-      font-family:Manrope,Inter,sans-serif;font-size:clamp(48px,7vw,88px);
-      line-height:.98;letter-spacing:-4.5px;max-width:800px;
+
+    .orb {
+      position: fixed;
+      width: 420px;
+      height: 420px;
+      border-radius: 50%;
+      filter: blur(100px);
+      opacity: 0.16;
+      pointer-events: none;
+      z-index: -1;
     }
-    h1 .gradient{background:linear-gradient(105deg,#fff 5%,#c4b5fd 48%,#f472b6 82%,#fb7185);-webkit-background-clip:text;background-clip:text;color:transparent}
-    .hero p{margin:25px 0;color:var(--muted);font-size:17px;max-width:620px}
-    .hero-actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:30px}
-    .btn{padding:15px 20px;font-size:14px}
-    .btn-primary{background:linear-gradient(100deg,#7c3aed,#ec4899);border-color:transparent;box-shadow:0 12px 40px rgba(139,92,246,.25)}
-    .btn-secondary{background:rgba(255,255,255,.055);color:#fff}
-    .hero-proof{display:flex;gap:18px;flex-wrap:wrap;margin-top:30px;color:#9e9eaa;font-size:12px}
-    .hero-proof span{display:flex;align-items:center;gap:7px}
-    .hero-proof i{width:5px;height:5px;border-radius:50%;background:#a78bfa}
 
-    .hero-card{
-      position:relative;min-height:480px;border-radius:32px;border:1px solid var(--line);
-      background:linear-gradient(145deg,rgba(255,255,255,.09),rgba(255,255,255,.025));
-      overflow:hidden;box-shadow:0 35px 100px rgba(0,0,0,.45);
-      padding:24px;
+    .orb.one {
+      background: #8b5cf6;
+      top: -160px;
+      left: -140px;
     }
-    .hero-card:before{content:"";position:absolute;width:250px;height:250px;border-radius:50%;background:var(--purple);filter:blur(75px);opacity:.28;right:-70px;top:-80px}
-    .window{height:100%;min-height:430px;border:1px solid rgba(255,255,255,.09);border-radius:23px;background:#0a0a0f;padding:18px;position:relative;overflow:hidden}
-    .window-top{display:flex;gap:6px;margin-bottom:30px}.window-top b{width:8px;height:8px;border-radius:50%;background:#555}
-    .mock-label{font-size:11px;color:#858592;text-transform:uppercase;letter-spacing:1.5px}
-    .mock-title{font-family:Manrope;font-size:42px;line-height:1.02;letter-spacing:-2px;margin-top:12px}
-    .mock-line{height:9px;border-radius:9px;background:rgba(255,255,255,.08);margin-top:14px}
-    .mock-line.short{width:62%}.mock-line.mid{width:78%}
-    .mock-orb{width:180px;height:180px;border-radius:50%;margin:40px auto;background:radial-gradient(circle at 35% 30%,#f9a8d4,transparent 25%),linear-gradient(135deg,#7c3aed,#ec4899);filter:drop-shadow(0 20px 45px rgba(139,92,246,.35))}
-    .mock-mini{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}.mock-mini div{height:62px;border:1px solid rgba(255,255,255,.08);border-radius:12px;background:rgba(255,255,255,.035)}
 
-    section{padding:105px 0}
-    .section-head{display:flex;justify-content:space-between;align-items:end;gap:30px;margin-bottom:45px}
-    .kicker{color:#a78bfa;font-size:12px;font-weight:800;text-transform:uppercase;letter-spacing:2px;margin-bottom:10px}
-    h2{font-family:Manrope;font-size:clamp(34px,5vw,58px);line-height:1;letter-spacing:-2.5px}
-    .section-head p{max-width:430px;color:var(--muted);font-size:14px}
-
-    .services-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:15px}
-    .card{
-      position:relative;overflow:hidden;border:1px solid var(--line);border-radius:var(--radius);
-      background:linear-gradient(145deg,rgba(255,255,255,.07),rgba(255,255,255,.025));
-      padding:28px;transition:.3s;box-shadow:0 20px 50px rgba(0,0,0,.12);
+    .orb.two {
+      background: #ec4899;
+      right: -160px;
+      top: 35%;
     }
-    .card:after{
-      content:"";position:absolute;inset:-100% 35% auto -30%;height:120px;
-      background:linear-gradient(90deg,transparent,rgba(255,255,255,.08),transparent);
-      transform:rotate(20deg);transition:.6s;pointer-events:none;
+
+    .cursor-glow {
+      position: fixed;
+      width: 260px;
+      height: 260px;
+      border-radius: 50%;
+      pointer-events: none;
+      background: radial-gradient(circle, rgba(168,85,247,.11), transparent 65%);
+      transform: translate(-50%, -50%);
+      z-index: 0;
+      display: none;
     }
-    .card:hover{transform:translateY(-5px);border-color:rgba(167,139,250,.3);box-shadow:0 25px 70px rgba(0,0,0,.25)}
-    .card:hover:after{top:120%;left:100%}
-    .icon{width:45px;height:45px;display:grid;place-items:center;border-radius:13px;background:linear-gradient(135deg,rgba(139,92,246,.25),rgba(236,72,153,.18));border:1px solid rgba(255,255,255,.1);margin-bottom:22px;font-size:19px}
-    .card h3{font-family:Manrope;font-size:20px;margin-bottom:10px}.card p{font-size:14px;color:var(--muted)}
-    .service-num{position:absolute;right:25px;top:25px;color:#555564;font-size:12px;font-weight:700}
 
-    .portfolio{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
-    .project{position:relative;border:1px solid var(--line);border-radius:28px;overflow:hidden;background:#0c0c11;min-height:350px}
-    .project img{width:100%;height:100%;min-height:350px;object-fit:cover;transition:transform .6s;opacity:.86}
-    .project:after{content:"";position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.88),transparent 65%)}
-    .project:hover img{transform:scale(1.035)}
-    .project-info{position:absolute;z-index:2;left:24px;right:24px;bottom:22px}
-    .project-tag{font-size:10px;text-transform:uppercase;letter-spacing:1.4px;color:#c4b5fd;margin-bottom:7px}
-    .project h3{font-family:Manrope;font-size:27px}.project p{font-size:12px;color:#b6b6c1;margin-top:2px}
-
-    .pricing{display:grid;grid-template-columns:repeat(3,1fr);gap:15px}
-    .price-card{display:flex;flex-direction:column;min-height:360px}
-    .price-card.featured{border-color:rgba(167,139,250,.42);box-shadow:0 25px 80px rgba(124,58,237,.14)}
-    .badge{position:absolute;right:18px;top:18px;font-size:10px;padding:6px 9px;border-radius:999px;background:rgba(139,92,246,.17);color:#c4b5fd;border:1px solid rgba(167,139,250,.25)}
-    .price{font-family:Manrope;font-size:34px;margin:12px 0 20px;letter-spacing:-1px}
-    .price small{font-family:Inter;font-size:12px;color:#858592;font-weight:500}
-    .features{list-style:none;display:grid;gap:9px;margin:0 0 25px;color:#c1c1cb;font-size:13px}
-    .features li:before{content:"✓";color:#c4b5fd;margin-right:8px}
-    .price-card .btn{margin-top:auto;width:100%}
-
-    .process{display:grid;grid-template-columns:repeat(4,1fr);gap:15px}
-    .step{padding:25px;border-top:1px solid var(--line)}
-    .step-num{font-size:12px;color:#a78bfa;font-weight:800;margin-bottom:28px}.step h3{font-family:Manrope;font-size:19px;margin-bottom:8px}.step p{color:var(--muted);font-size:13px}
-
-    .advantages{display:grid;grid-template-columns:repeat(2,1fr);gap:15px}
-    .adv{display:flex;gap:18px;align-items:flex-start}
-    .adv .icon{flex:0 0 45px;margin:0}.adv h3{font-family:Manrope;font-size:17px;margin-bottom:5px}.adv p{font-size:13px;color:var(--muted)}
-
-    .contact-wrap{display:grid;grid-template-columns:.8fr 1.2fr;gap:18px}
-    .contact-info{padding:34px}
-    .contact-list{display:grid;gap:13px;margin-top:30px}
-    .contact-item{display:flex;align-items:center;gap:13px;padding:15px;border:1px solid var(--line);border-radius:15px;background:rgba(255,255,255,.035);font-size:14px}
-    .contact-item span{color:#9999a5;font-size:12px;display:block}
-    .contact-item strong{font-size:14px}
-    .contact-form{padding:34px}
-    .form-grid{display:grid;grid-template-columns:1fr 1fr;gap:13px}
-    label{display:block;font-size:11px;color:#a7a7b2;margin:0 0 7px}
-    input,textarea{
-      width:100%;border:1px solid var(--line);outline:none;border-radius:13px;
-      background:rgba(255,255,255,.045);color:#fff;padding:13px 14px;transition:.2s
+    .container {
+      width: min(1120px, calc(100% - 40px));
+      margin: 0 auto;
     }
-    input:focus,textarea:focus{border-color:rgba(167,139,250,.55);box-shadow:0 0 0 3px rgba(139,92,246,.09)}
-    textarea{resize:vertical;min-height:130px}
-    .field{margin-bottom:14px}.full{grid-column:1/-1}
-    .form-note{font-size:11px;color:#777783;margin-top:10px}
 
-    footer{padding:35px 0 45px;border-top:1px solid rgba(255,255,255,.07);color:#858592;font-size:12px}
-    .footer-inner{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}.footer-logo{color:#fff;font-weight:800}
-
-    .reveal{opacity:0;transform:translateY(18px);transition:opacity .7s ease,transform .7s ease}
-    .reveal.show{opacity:1;transform:none}
-    @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.reveal{opacity:1;transform:none;transition:none}.card,.project img,.btn{transition:none}}
-
-    @media(max-width:900px){
-      .links{display:none}.menu-btn{display:block}
-      .nav.open .links{position:absolute;display:flex;flex-direction:column;align-items:stretch;top:76px;left:0;right:0;padding:15px;background:rgba(10,10,14,.95);border:1px solid var(--line);border-radius:18px}
-      .nav.open .links a{padding:10px}
-      .hero-grid,.contact-wrap{grid-template-columns:1fr}.hero-card{min-height:400px}
-      .services-grid,.pricing{grid-template-columns:1fr 1fr}.process{grid-template-columns:1fr 1fr}
+    .nav {
+      position: relative;
+      z-index: 10;
+      padding: 24px 0;
     }
-    @media(max-width:620px){
-      .container{width:min(var(--max),calc(100% - 28px))}
-      header{top:8px}.nav{width:calc(100% - 16px);min-height:60px;padding-left:15px;border-radius:17px}
-      .nav-cta{display:none}
-      .hero{padding:125px 0 65px;min-height:auto}
-      h1{font-size:47px;letter-spacing:-3px}
-      .hero p{font-size:15px}.hero-proof{gap:10px;font-size:11px}
-      .hero-card{padding:12px;border-radius:22px;min-height:360px}.window{min-height:330px}.mock-title{font-size:31px}.mock-orb{width:125px;height:125px;margin:28px auto}
-      section{padding:75px 0}.section-head{display:block;margin-bottom:28px}.section-head p{margin-top:14px}
-      .services-grid,.portfolio,.pricing,.process,.advantages{grid-template-columns:1fr}
-      .project,.project img{min-height:290px}.project h3{font-size:24px}
-      .form-grid{grid-template-columns:1fr}.full{grid-column:auto}
-      .contact-info,.contact-form{padding:22px}
-      .price-card{min-height:330px}
+
+    .nav-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 30px;
+    }
+
+    .logo {
+      font-size: 22px;
+      font-weight: 800;
+      letter-spacing: -0.8px;
+    }
+
+    .logo span {
+      color: #b66cff;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 26px;
+      color: #aaa;
+      font-size: 14px;
+    }
+
+    .nav-links a {
+      transition: .25s ease;
+    }
+
+    .nav-links a:hover {
+      color: #fff;
+    }
+
+    .nav-button {
+      padding: 11px 17px;
+      border-radius: 12px;
+      border: 1px solid rgba(255,255,255,.12);
+      background: rgba(255,255,255,.04);
+      font-size: 14px;
+      transition: .25s ease;
+    }
+
+    .nav-button:hover {
+      background: rgba(255,255,255,.09);
+      border-color: rgba(255,255,255,.2);
+    }
+
+    .hero {
+      min-height: 760px;
+      display: flex;
+      align-items: center;
+      padding: 90px 0 100px;
+    }
+
+    .hero-content {
+      max-width: 850px;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      padding: 8px 13px;
+      border: 1px solid rgba(255,255,255,.1);
+      background: rgba(255,255,255,.035);
+      border-radius: 999px;
+      color: #cfcfcf;
+      font-size: 13px;
+      margin-bottom: 28px;
+      backdrop-filter: blur(12px);
+    }
+
+    .eyebrow-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: #b36cff;
+      box-shadow: 0 0 14px #a855f7;
+    }
+
+    h1 {
+      font-size: clamp(48px, 8vw, 92px);
+      line-height: .98;
+      letter-spacing: -5px;
+      max-width: 900px;
+    }
+
+    h1 .gradient {
+      background: linear-gradient(90deg, #fff, #bd7cff, #ff5da8);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .hero-text {
+      max-width: 650px;
+      color: #a6a6ad;
+      font-size: 18px;
+      margin-top: 28px;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 13px;
+      flex-wrap: wrap;
+      margin-top: 34px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 14px 21px;
+      border-radius: 13px;
+      border: 1px solid rgba(255,255,255,.12);
+      transition: .3s ease;
+      cursor: pointer;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, #8b5cf6, #ec4899);
+      border: none;
+      box-shadow: 0 12px 40px rgba(168,85,247,.22);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 16px 50px rgba(168,85,247,.32);
+    }
+
+    .btn-secondary {
+      background: rgba(255,255,255,.04);
+    }
+
+    .btn-secondary:hover {
+      background: rgba(255,255,255,.08);
+    }
+
+    .hero-note {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 10px;
+      color: #85858d;
+      font-size: 13px;
+      margin-top: 24px;
+    }
+
+    .hero-note .tag {
+      padding: 5px 9px;
+      border: 1px solid rgba(255,255,255,.08);
+      border-radius: 8px;
+      background: rgba(255,255,255,.025);
+    }
+
+    .hero-note .dot {
+      color: #8b5cf6;
+    }
+
+    .proof {
+      color: #73737b;
+      font-size: 13px;
+      margin-top: 18px;
+    }
+
+    section {
+      padding: 100px 0;
+    }
+
+    .section-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: end;
+      gap: 30px;
+      margin-bottom: 42px;
+    }
+
+    .section-label {
+      color: #a855f7;
+      font-size: 13px;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      margin-bottom: 10px;
+    }
+
+    h2 {
+      font-size: clamp(34px, 5vw, 58px);
+      line-height: 1;
+      letter-spacing: -2px;
+    }
+
+    .section-description {
+      max-width: 420px;
+      color: #85858d;
+      font-size: 15px;
+    }
+
+    .grid {
+      display: grid;
+      gap: 16px;
+    }
+
+    .services-grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    .card {
+      position: relative;
+      overflow: hidden;
+      border: 1px solid rgba(255,255,255,.08);
+      background: rgba(255,255,255,.035);
+      border-radius: 20px;
+      padding: 27px;
+      backdrop-filter: blur(14px);
+      transition: transform .3s ease, border-color .3s ease, background .3s ease;
+    }
+
+    .card::after {
+      content: "";
+      position: absolute;
+      width: 150px;
+      height: 150px;
+      top: -100px;
+      left: -100px;
+      border-radius: 50%;
+      background: rgba(255,255,255,.1);
+      filter: blur(25px);
+      transition: .5s ease;
+      pointer-events: none;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+      border-color: rgba(168,85,247,.28);
+      background: rgba(255,255,255,.05);
+    }
+
+    .card:hover::after {
+      left: 70%;
+      top: 60%;
+    }
+
+    .card-number {
+      color: #777;
+      font-size: 12px;
+      margin-bottom: 35px;
+    }
+
+    .card h3 {
+      font-size: 22px;
+      margin-bottom: 10px;
+    }
+
+    .card p {
+      color: #85858d;
+      font-size: 14px;
+    }
+
+    .portfolio-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    .project {
+      position: relative;
+      overflow: hidden;
+      border-radius: 22px;
+      border: 1px solid rgba(255,255,255,.08);
+      background: #0d0d12;
+    }
+
+    .project-image {
+      width: 100%;
+      aspect-ratio: 16 / 10;
+      object-fit: cover;
+      display: block;
+      transition: transform .5s ease;
+    }
+
+    .project:hover .project-image {
+      transform: scale(1.035);
+    }
+
+    .project-info {
+      padding: 20px 21px 22px;
+    }
+
+    .project-title {
+      font-size: 21px;
+      font-weight: 700;
+    }
+
+    .project-subtitle {
+      color: #777;
+      font-size: 13px;
+      margin-top: 5px;
+    }
+
+    .demo-label {
+      display: inline-block;
+      margin-top: 12px;
+      padding: 5px 9px;
+      border-radius: 7px;
+      background: rgba(168,85,247,.1);
+      color: #c58cff;
+      font-size: 11px;
+    }
+
+    .prices-grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    .price-card {
+      display: flex;
+      flex-direction: column;
+      min-height: 255px;
+    }
+
+    .price-card h3 {
+      margin-bottom: 12px;
+    }
+
+    .price {
+      font-size: 29px;
+      font-weight: 800;
+      margin-top: auto;
+      padding-top: 35px;
+    }
+
+    .price span {
+      color: #777;
+      font-size: 13px;
+      font-weight: 400;
+    }
+
+    .process-grid {
+      grid-template-columns: repeat(4, 1fr);
+    }
+
+    .process-number {
+      font-size: 38px;
+      font-weight: 800;
+      color: #a855f7;
+      margin-bottom: 28px;
+    }
+
+    .advantages-grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    .advantage-icon {
+      width: 42px;
+      height: 42px;
+      display: grid;
+      place-items: center;
+      border-radius: 12px;
+      background: rgba(168,85,247,.12);
+      margin-bottom: 22px;
+      color: #c084fc;
+    }
+
+    .contact-section {
+      padding-bottom: 80px;
+    }
+
+    .contact-wrap {
+      display: grid;
+      grid-template-columns: .8fr 1.2fr;
+      gap: 18px;
+    }
+
+    .contact-box,
+    .form-box {
+      border: 1px solid rgba(255,255,255,.08);
+      background: rgba(255,255,255,.035);
+      border-radius: 22px;
+      padding: 30px;
+      backdrop-filter: blur(14px);
+    }
+
+    .contact-box {
+      box-shadow: 0 20px 70px rgba(0,0,0,.25);
+    }
+
+    .contact-box h2 {
+      margin-bottom: 15px;
+    }
+
+    .contact-box > p {
+      color: #85858d;
+      font-size: 14px;
+      margin-bottom: 30px;
+    }
+
+    .contact-links {
+      display: grid;
+      gap: 11px;
+    }
+
+    .contact-link {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      padding: 15px;
+      border: 1px solid rgba(255,255,255,.07);
+      border-radius: 13px;
+      background: rgba(255,255,255,.025);
+      transition: .25s ease;
+    }
+
+    .contact-link:hover {
+      background: rgba(255,255,255,.06);
+      border-color: rgba(168,85,247,.25);
+    }
+
+    .contact-link small {
+      color: #777;
+      display: block;
+      margin-bottom: 2px;
+    }
+
+    .contact-link strong {
+      font-size: 14px;
+    }
+
+    .form-box h3 {
+      font-size: 25px;
+      margin-bottom: 7px;
+    }
+
+    .form-description {
+      color: #777;
+      font-size: 13px;
+      margin-bottom: 24px;
+    }
+
+    .form-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 13px;
+    }
+
+    .field {
+      display: flex;
+      flex-direction: column;
+      gap: 7px;
+    }
+
+    .field.full {
+      grid-column: 1 / -1;
+    }
+
+    .field label {
+      color: #aaa;
+      font-size: 12px;
+    }
+
+    .field input,
+    .field select,
+    .field textarea {
+      width: 100%;
+      border: 1px solid rgba(255,255,255,.09);
+      background: rgba(0,0,0,.2);
+      color: #fff;
+      border-radius: 11px;
+      padding: 13px 14px;
+      outline: none;
+      transition: .25s ease;
+    }
+
+    .field input::placeholder,
+    .field textarea::placeholder {
+      color: #5f5f67;
+    }
+
+    .field input:focus,
+    .field select:focus,
+    .field textarea:focus {
+      border-color: rgba(168,85,247,.55);
+      box-shadow: 0 0 0 3px rgba(168,85,247,.08);
+    }
+
+    .field textarea {
+      resize: vertical;
+      min-height: 110px;
+    }
+
+    .form-submit {
+      width: 100%;
+      margin-top: 15px;
+    }
+
+    footer {
+      border-top: 1px solid rgba(255,255,255,.07);
+      padding: 28px 0;
+      color: #666;
+      font-size: 12px;
+    }
+
+    .footer-inner {
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    @media (min-width: 900px) {
+      .cursor-glow {
+        display: block;
+      }
+    }
+
+    @media (max-width: 850px) {
+      .nav-links {
+        display: none;
+      }
+
+      .services-grid,
+      .prices-grid,
+      .advantages-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .process-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .contact-wrap {
+        grid-template-columns: 1fr;
+      }
+
+      .hero {
+        min-height: auto;
+        padding-top: 80px;
+      }
+    }
+
+    @media (max-width: 620px) {
+      .container {
+        width: min(100% - 28px, 1120px);
+      }
+
+      section {
+        padding: 75px 0;
+      }
+
+      .hero {
+        padding: 65px 0 80px;
+      }
+
+      h1 {
+        font-size: clamp(43px, 14vw, 65px);
+        letter-spacing: -3px;
+      }
+
+      .hero-text {
+        font-size: 16px;
+      }
+
+      .hero-note {
+        font-size: 11px;
+        gap: 7px;
+      }
+
+      .proof {
+        font-size: 11px;
+      }
+
+      .services-grid,
+      .portfolio-grid,
+      .prices-grid,
+      .process-grid,
+      .advantages-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .section-head {
+        display: block;
+      }
+
+      .section-description {
+        margin-top: 15px;
+      }
+
+      .form-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .field.full {
+        grid-column: auto;
+      }
+
+      .contact-box,
+      .form-box {
+        padding: 22px;
+      }
+
+      .footer-inner {
+        flex-direction: column;
+      }
+
+      .nav-button {
+        display: none;
+      }
     }
   </style>
 </head>
 
 <body>
-  <div class="ambient a"></div><div class="ambient b"></div>
 
-  <header>
-    <nav class="nav" id="nav">
-      <a class="logo" href="#home">Vibe <span>Studio</span></a>
-      <div class="links">
-        <a href="#services">Послуги</a>
-        <a href="#portfolio">Роботи</a>
-        <a href="#pricing">Ціни</a>
-        <a href="#process">Процес</a>
-        <a href="#contacts">Контакти</a>
+  <div class="page">
+
+    <div class="orb one"></div>
+    <div class="orb two"></div>
+    <div class="cursor-glow" id="cursorGlow"></div>
+
+    <header class="nav">
+      <div class="container nav-inner">
+
+        <a href="#home" class="logo">
+          Vibe <span>Studio</span>
+        </a>
+
+        <nav class="nav-links">
+          <a href="#services">Послуги</a>
+          <a href="#portfolio">Мої роботи</a>
+          <a href="#prices">Ціни</a>
+          <a href="#process">Процес</a>
+          <a href="#contacts">Контакти</a>
+        </nav>
+
+        <a href="#contacts" class="nav-button">
+          Замовити сайт
+        </a>
+
       </div>
-      <a class="nav-cta" href="#contacts">Замовити сайт ↗</a>
-      <button class="menu-btn" id="menuBtn" aria-label="Відкрити меню">☰</button>
-    </nav>
-  </header>
+    </header>
 
-  <main>
-    <section class="hero" id="home">
-      <div class="container hero-grid">
-        <div class="reveal">
-          <div class="eyebrow"><span class="dot"></span> Сайти, які виглядають дорого</div>
-          <h1>Створюємо <span class="gradient">сильний digital</span> для твого бізнесу.</h1>
-          <p>Сучасні сайти під ключ: дизайн, структура, адаптація під телефон і запуск. Без зайвого — тільки те, що допомагає презентувати бізнес та отримувати заявки.</p>
-          <div class="hero-actions">
-            <a class="btn btn-primary" href="#contacts">Обговорити проєкт ↗</a>
-            <a class="btn btn-secondary" href="#portfolio">Дивитися роботи</a>
+
+    <main>
+
+      <!-- ГОЛОВНИЙ ЕКРАН -->
+      <section class="hero" id="home">
+        <div class="container">
+
+          <div class="hero-content">
+
+            <div class="eyebrow">
+              <span class="eyebrow-dot"></span>
+              Створення сучасних сайтів
+            </div>
+
+            <h1>
+              Сайти, які
+              <span class="gradient">виглядають дорого.</span>
+            </h1>
+
+            <p class="hero-text">
+              Vibe Studio створює сучасні, швидкі та стильні сайти
+              для бізнесу, брендів і особистих проєктів.
+            </p>
+
+            <div class="hero-actions">
+              <a href="#contacts" class="btn btn-primary">
+                Обговорити проєкт →
+              </a>
+
+              <a href="#portfolio" class="btn btn-secondary">
+                Переглянути роботи
+              </a>
+            </div>
+
+            <div class="hero-note">
+              <span class="tag">Дизайн</span>
+              <span class="dot">•</span>
+              <span class="tag">Розробка</span>
+              <span class="dot">•</span>
+              <span class="tag">Адаптивність</span>
+              <span class="dot">•</span>
+              <span class="tag">Публікація</span>
+            </div>
+
+            <div class="proof">
+              Працюємо з проєктами по всій Україні
+            </div>
+
           </div>
-          <div class="hero-proof">
-            <span><i></i> Працюємо по всій Україні</span>
-            <span><i></i> Адаптивна верстка</span>
-            <span><i></i> Під ключ</span>
+
+        </div>
+      </section>
+
+
+      <!-- ПОСЛУГИ -->
+      <section id="services">
+        <div class="container">
+
+          <div class="section-head">
+            <div>
+              <div class="section-label">Послуги</div>
+              <h2>Що я створюю</h2>
+            </div>
+
+            <p class="section-description">
+              Від простої сторінки до повноцінного сайту для бізнесу.
+              Усе підбирається під конкретну задачу.
+            </p>
+          </div>
+
+          <div class="grid services-grid">
+
+            <div class="card">
+              <div class="card-number">01</div>
+              <h3>Сайт-візитка</h3>
+              <p>
+                Компактний сайт, щоб красиво представити себе,
+                спеціаліста або послугу в інтернеті.
+              </p>
+            </div>
+
+            <div class="card">
+              <div class="card-number">02</div>
+              <h3>Односторінковий сайт</h3>
+              <p>
+                Сучасний landing page для послуги, продукту,
+                реклами або запуску.
+              </p>
+            </div>
+
+            <div class="card">
+              <div class="card-number">03</div>
+              <h3>Сайт для бізнесу</h3>
+              <p>
+                Повноцінна презентація компанії з послугами,
+                інформацією та контактами.
+              </p>
+            </div>
+
+            <div class="card">
+              <div class="card-number">04</div>
+              <h3>Багатосторінковий сайт</h3>
+              <p>
+                Кілька сторінок, логічна структура та зручна
+                навігація для масштабного проєкту.
+              </p>
+            </div>
+
+            <div class="card">
+              <div class="card-number">05</div>
+              <h3>Інтернет-магазин</h3>
+              <p>
+                Сайт для продажу товарів із каталогом,
+                картками товарів та необхідною функціональністю.
+              </p>
+            </div>
+
+            <div class="card">
+              <div class="card-number">06</div>
+              <h3>Редизайн</h3>
+              <p>
+                Оновлення застарілого сайту та створення
+                сучасного візуального стилю.
+              </p>
+            </div>
+
           </div>
         </div>
+      </section>
 
-        <div class="hero-card reveal">
-          <div class="window">
-            <div class="window-top"><b></b><b></b><b></b></div>
-            <div class="mock-label">Vibe Studio / Digital</div>
-            <div class="mock-title">Your brand.<br>But better.</div>
-            <div class="mock-line mid"></div>
-            <div class="mock-line short"></div>
-            <div class="mock-orb"></div>
-            <div class="mock-mini"><div></div><div></div><div></div></div>
+
+      <!-- ПОРТФОЛІО -->
+      <section id="portfolio">
+        <div class="container">
+
+          <div class="section-head">
+            <div>
+              <div class="section-label">Портфоліо</div>
+              <h2>Мої роботи</h2>
+            </div>
+
+            <p class="section-description">
+              Демонстраційні концепції сайтів у різних стилях
+              та для різних сфер.
+            </p>
+          </div>
+
+          <div class="grid portfolio-grid">
+
+            <div class="project">
+              <img
+                src="images/portfolio/noir.jpg"
+                alt="NOIR — демонстраційний сайт ресторану"
+                class="project-image"
+              >
+
+              <div class="project-info">
+                <div class="project-title">NOIR</div>
+                <div class="project-subtitle">Концепція сайту ресторану</div>
+                <span class="demo-label">Демонстраційний проєкт</span>
+              </div>
+            </div>
+
+
+            <div class="project">
+              <img
+                src="images/portfolio/aura.jpg"
+                alt="AURA — демонстраційний сайт магазину одягу"
+                class="project-image"
+              >
+
+              <div class="project-info">
+                <div class="project-title">AURA</div>
+                <div class="project-subtitle">Концепція магазину одягу</div>
+                <span class="demo-label">Демонстраційний проєкт</span>
+              </div>
+            </div>
+
+
+            <div class="project">
+              <img
+                src="images/portfolio/volt.jpg"
+                alt="VOLT — демонстраційний сайт автосервісу"
+                class="project-image"
+              >
+
+              <div class="project-info">
+                <div class="project-title">VOLT</div>
+                <div class="project-subtitle">Концепція сайту автосервісу</div>
+                <span class="demo-label">Демонстраційний проєкт</span>
+              </div>
+            </div>
+
+
+            <div class="project">
+              <img
+                src="images/portfolio/nova.jpg"
+                alt="NOVA — демонстраційний сайт IT-компанії"
+                class="project-image"
+              >
+
+              <div class="project-info">
+                <div class="project-title">NOVA</div>
+                <div class="project-subtitle">Концепція сайту IT-компанії</div>
+                <span class="demo-label">Демонстраційний проєкт</span>
+              </div>
+            </div>
+
           </div>
         </div>
-      </div>
-    </section>
+      </section>
 
-    <section id="services">
-      <div class="container">
-        <div class="section-head reveal">
-          <div><div class="kicker">01 / Послуги</div><h2>Що ми створюємо</h2></div>
-          <p>Підбираємо формат під задачу — від компактної сторінки до повноцінного сайту для бізнесу.</p>
-        </div>
-        <div class="services-grid">
-          <article class="card reveal"><span class="service-num">01</span><div class="icon">✦</div><h3>Сайт-візитка</h3><p>Лаконічний сайт, який професійно представляє тебе, спеціаліста або послугу.</p></article>
-          <article class="card reveal"><span class="service-num">02</span><div class="icon">◈</div><h3>Односторінковий сайт</h3><p>Сильний landing page з чіткою структурою, офером і закликом до дії.</p></article>
-          <article class="card reveal"><span class="service-num">03</span><div class="icon">⌘</div><h3>Сайт для бізнесу</h3><p>Повноцінна презентація компанії, послуг, переваг і способів зв'язку.</p></article>
-          <article class="card reveal"><span class="service-num">04</span><div class="icon">▦</div><h3>Багатосторінковий сайт</h3><p>Продумана структура для компаній з великою кількістю напрямів та інформації.</p></article>
-          <article class="card reveal"><span class="service-num">05</span><div class="icon">⌁</div><h3>Інтернет-магазин</h3><p>Каталог товарів, картки продуктів та зручний шлях від перегляду до замовлення.</p></article>
-          <article class="card reveal"><span class="service-num">06</span><div class="icon">↗</div><h3>Редизайн</h3><p>Оновлюємо застарілий сайт, щоб він виглядав сучасно, чисто та переконливо.</p></article>
-        </div>
-      </div>
-    </section>
 
-    <section id="portfolio">
-      <div class="container">
-        <div class="section-head reveal">
-          <div><div class="kicker">02 / Мої роботи</div><h2>Дизайн, який говорить за себе</h2></div>
-          <p>Нижче — демонстраційні концепції для різних ніш. Це приклади стилю та підходу.</p>
-        </div>
-        <div class="portfolio">
-          <article class="project reveal"><img src="images/portfolio/noir.jpg" alt="Демонстраційний сайт NOIR" loading="lazy"><div class="project-info"><div class="project-tag">Демонстраційний проєкт</div><h3>NOIR</h3><p>Концепція сайту ресторану</p></div></article>
-          <article class="project reveal"><img src="images/portfolio/aura.jpg" alt="Демонстраційний сайт AURA" loading="lazy"><div class="project-info"><div class="project-tag">Демонстраційний проєкт</div><h3>AURA</h3><p>Концепція fashion-магазину</p></div></article>
-          <article class="project reveal"><img src="images/portfolio/volt.jpg" alt="Демонстраційний сайт VOLT" loading="lazy"><div class="project-info"><div class="project-tag">Демонстраційний проєкт</div><h3>VOLT</h3><p>Концепція автосервісу</p></div></article>
-          <article class="project reveal"><img src="images/portfolio/nova.jpg" alt="Демонстраційний сайт NOVA" loading="lazy"><div class="project-info"><div class="project-tag">Демонстраційний проєкт</div><h3>NOVA</h3><p>Концепція IT-компанії</p></div></article>
-        </div>
-      </div>
-    </section>
+      <!-- ЦІНИ -->
+      <section id="prices">
+        <div class="container">
 
-    <section id="pricing">
-      <div class="container">
-        <div class="section-head reveal">
-          <div><div class="kicker">03 / Ціни</div><h2>Прозорий старт</h2></div>
-          <p>Фінальна вартість залежить від обсягу, функціоналу та кількості сторінок.</p>
-        </div>
-        <div class="pricing">
-          <article class="card price-card reveal"><h3>Сайт-візитка</h3><div class="price">від 2 500 <small>грн</small></div><ul class="features"><li>До 1 сторінки</li><li>Адаптація під телефон</li><li>Контактні кнопки</li></ul><a class="btn btn-secondary" href="#contacts">Замовити</a></article>
-          <article class="card price-card featured reveal"><span class="badge">Популярний</span><h3>Односторінковий сайт</h3><div class="price">від 4 000 <small>грн</small></div><ul class="features"><li>Продаюча структура</li><li>Сучасний UI-дизайн</li><li>Адаптивність</li><li>Форма / CTA</li></ul><a class="btn btn-primary" href="#contacts">Замовити</a></article>
-          <article class="card price-card reveal"><h3>Сайт для бізнесу</h3><div class="price">від 6 000 <small>грн</small></div><ul class="features"><li>Структура під бізнес</li><li>Кілька блоків / сторінок</li><li>Адаптивність</li><li>Контакти та CTA</li></ul><a class="btn btn-secondary" href="#contacts">Замовити</a></article>
-          <article class="card price-card reveal"><h3>Багатосторінковий сайт</h3><div class="price">від 8 000 <small>грн</small></div><ul class="features"><li>Кілька сторінок</li><li>Єдина дизайн-система</li><li>Адаптивність</li></ul><a class="btn btn-secondary" href="#contacts">Замовити</a></article>
-          <article class="card price-card reveal"><h3>Інтернет-магазин</h3><div class="price">від 12 000 <small>грн</small></div><ul class="features"><li>Каталог товарів</li><li>Картки товарів</li><li>Структура магазину</li></ul><a class="btn btn-secondary" href="#contacts">Замовити</a></article>
-          <article class="card price-card reveal"><h3>Редизайн</h3><div class="price">від 2 000 <small>грн</small></div><ul class="features"><li>Оновлення візуалу</li><li>Покращення структури</li><li>Адаптація під мобільні</li></ul><a class="btn btn-secondary" href="#contacts">Замовити</a></article>
-        </div>
-      </div>
-    </section>
+          <div class="section-head">
+            <div>
+              <div class="section-label">Ціни</div>
+              <h2>Вартість</h2>
+            </div>
 
-    <section id="process">
-      <div class="container">
-        <div class="section-head reveal">
-          <div><div class="kicker">04 / Процес</div><h2>Від ідеї до запуску</h2></div>
-          <p>Простий процес без зайвої бюрократії та незрозумілих етапів.</p>
-        </div>
-        <div class="process">
-          <div class="step reveal"><div class="step-num">01 — ЗАПИТ</div><h3>Обговорюємо задачу</h3><p>Визначаємо ціль сайту, формат, структуру та необхідний функціонал.</p></div>
-          <div class="step reveal"><div class="step-num">02 — ДИЗАЙН</div><h3>Створюємо стиль</h3><p>Підбираємо візуальний напрям і будуємо зрозумілий інтерфейс.</p></div>
-          <div class="step reveal"><div class="step-num">03 — РОЗРОБКА</div><h3>Верстаємо сайт</h3><p>Перетворюємо дизайн на швидкий адаптивний сайт.</p></div>
-          <div class="step reveal"><div class="step-num">04 — ЗАПУСК</div><h3>Публікуємо</h3><p>Перевіряємо сторінки, адаптивність і готуємо сайт до запуску.</p></div>
-        </div>
-      </div>
-    </section>
+            <p class="section-description">
+              Остаточна ціна залежить від обсягу та складності
+              конкретного проєкту.
+            </p>
+          </div>
 
-    <section>
-      <div class="container">
-        <div class="section-head reveal">
-          <div><div class="kicker">05 / Переваги</div><h2>Чому Vibe Studio</h2></div>
-        </div>
-        <div class="advantages">
-          <article class="card adv reveal"><div class="icon">✦</div><div><h3>Сучасний дизайн</h3><p>Акцент на чисту композицію, типографіку, контраст і деталі.</p></div></article>
-          <article class="card adv reveal"><div class="icon">◉</div><div><h3>Mobile First</h3><p>Сайт адаптується під смартфони, планшети та великі екрани.</p></div></article>
-          <article class="card adv reveal"><div class="icon">⚡</div><div><h3>Швидкий запуск</h3><p>Працюємо без зайвих складних процесів і тримаємо фокус на результаті.</p></div></article>
-          <article class="card adv reveal"><div class="icon">✓</div><div><h3>Під ключ</h3><p>Від першої ідеї та структури до готового опублікованого сайту.</p></div></article>
-        </div>
-      </div>
-    </section>
+          <div class="grid prices-grid">
 
-    <section id="contacts">
-      <div class="container">
-        <div class="section-head reveal">
-          <div><div class="kicker">06 / Контакти</div><h2>Є ідея? Давай зробимо.</h2></div>
-          <p>Опиши коротко, що тобі потрібно. Відповімо та обговоримо формат проєкту.</p>
+            <div class="card price-card">
+              <h3>Сайт-візитка</h3>
+              <p>Компактний сайт для презентації себе або послуги.</p>
+              <div class="price">
+                від 2 500 грн
+              </div>
+            </div>
+
+            <div class="card price-card">
+              <h3>Односторінковий сайт</h3>
+              <p>Landing page для продукту, послуги або реклами.</p>
+              <div class="price">
+                від 4 000 грн
+              </div>
+            </div>
+
+            <div class="card price-card">
+              <h3>Сайт для бізнесу</h3>
+              <p>Повноцінний сайт компанії з усією необхідною інформацією.</p>
+              <div class="price">
+                від 6 000 грн
+              </div>
+            </div>
+
+            <div class="card price-card">
+              <h3>Багатосторінковий сайт</h3>
+              <p>Кілька сторінок із продуманою структурою.</p>
+              <div class="price">
+                від 8 000 грн
+              </div>
+            </div>
+
+            <div class="card price-card">
+              <h3>Інтернет-магазин</h3>
+              <p>Сайт для продажу товарів та розвитку онлайн-бізнесу.</p>
+              <div class="price">
+                від 12 000 грн
+              </div>
+            </div>
+
+            <div class="card price-card">
+              <h3>Редизайн</h3>
+              <p>Сучасний вигляд та оновлення існуючого сайту.</p>
+              <div class="price">
+                від 2 000 грн
+              </div>
+            </div>
+
+          </div>
         </div>
-        <div class="contact-wrap">
-          <div class="card contact-info reveal">
-            <h3 style="font-family:Manrope;font-size:24px">Зв'язок напряму</h3>
-            <p style="color:var(--muted);font-size:13px;margin-top:8px">Обери зручний спосіб або залиш заявку поруч.</p>
-            <div class="contact-list">
-              <a class="contact-item" href="https://t.me/Bodya5296" target="_blank" rel="noopener"><div>✈️</div><div><span>Telegram</span><strong>@Bodya5296</strong></div></a>
-              <a class="contact-item" href="tel:0931594724"><div>☎</div><div><span>Телефон</span><strong>093-159-47-24</strong></div></a>
-              <a class="contact-item" href="mailto:unfa83371@gmail.com"><div>✉</div><div><span>Email</span><strong>unfa83371@gmail.com</strong></div></a>
+      </section>
+
+
+      <!-- ПРОЦЕС -->
+      <section id="process">
+        <div class="container">
+
+          <div class="section-head">
+            <div>
+              <div class="section-label">Процес</div>
+              <h2>Як усе працює</h2>
+            </div>
+
+            <p class="section-description">
+              Простий та зрозумілий процес без зайвої бюрократії.
+            </p>
+          </div>
+
+          <div class="grid process-grid">
+
+            <div class="card">
+              <div class="process-number">01</div>
+              <h3>Заявка</h3>
+              <p>
+                Ви розповідаєте, який сайт потрібен і що він має робити.
+              </p>
+            </div>
+
+            <div class="card">
+              <div class="process-number">02</div>
+              <h3>Дизайн</h3>
+              <p>
+                Підбираємо стиль, структуру, кольори та основну подачу.
+              </p>
+            </div>
+
+            <div class="card">
+              <div class="process-number">03</div>
+              <h3>Розробка</h3>
+              <p>
+                Створюється сайт, адаптований під телефон, планшет і комп'ютер.
+              </p>
+            </div>
+
+            <div class="card">
+              <div class="process-number">04</div>
+              <h3>Запуск</h3>
+              <p>
+                Перевіряємо все та публікуємо сайт в інтернеті.
+              </p>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+
+      <!-- ПЕРЕВАГИ -->
+      <section>
+        <div class="container">
+
+          <div class="section-head">
+            <div>
+              <div class="section-label">Переваги</div>
+              <h2>Чому Vibe Studio</h2>
             </div>
           </div>
 
-          <form class="card contact-form reveal" id="contactForm">
-            <div class="form-grid">
-              <div class="field"><label for="name">Ім'я</label><input id="name" name="name" placeholder="Як до тебе звертатися?" required></div>
-              <div class="field"><label for="contact">Контакт</label><input id="contact" name="contact" placeholder="Telegram або телефон" required></div>
-              <div class="field full"><label for="message">Що потрібно зробити?</label><textarea id="message" name="message" placeholder="Наприклад: потрібен сайт для кав'ярні..." required></textarea></div>
-              <div class="full"><button class="btn btn-primary" type="submit" style="width:100%">Надіслати заявку ↗</button><div class="form-note">Кнопка відкриє Telegram із підготовленим повідомленням. Нічого не зберігаємо на цьому сайті.</div></div>
-            </div>
-          </form>
-        </div>
-      </div>
-    </section>
-  </main>
+          <div class="grid advantages-grid">
 
-  <footer>
-    <div class="container footer-inner">
-      <div><span class="footer-logo">Vibe Studio</span> — сучасні сайти під ключ.</div>
-      <div>© <span id="year"></span> Vibe Studio</div>
-    </div>
-  </footer>
+            <div class="card">
+              <div class="advantage-icon">✦</div>
+              <h3>Сучасний дизайн</h3>
+              <p>
+                Акцент на чистий, сучасний та преміальний вигляд.
+              </p>
+            </div>
+
+            <div class="card">
+              <div class="advantage-icon">↗</div>
+              <h3>Адаптивність</h3>
+              <p>
+                Сайт коректно виглядає на смартфонах, планшетах і ПК.
+              </p>
+            </div>
+
+            <div class="card">
+              <div class="advantage-icon">⚡</div>
+              <h3>Швидкий запуск</h3>
+              <p>
+                Без зайвих складнощів — від ідеї до готового сайту.
+              </p>
+            </div>
+
+            <div class="card">
+              <div class="advantage-icon">◎</div>
+              <h3>Увага до деталей</h3>
+              <p>
+                Продумуємо не тільки зовнішній вигляд, а й зручність.
+              </p>
+            </div>
+
+            <div class="card">
+              <div class="advantage-icon">⌁</div>
+              <h3>Індивідуальний підхід</h3>
+              <p>
+                Кожен проєкт створюється під конкретні цілі.
+              </p>
+            </div>
+
+            <div class="card">
+              <div class="advantage-icon">✓</div>
+              <h3>Під ключ</h3>
+              <p>
+                Дизайн, розробка, адаптація та публікація сайту.
+              </p>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+
+      <!-- КОНТАКТИ -->
+      <section class="contact-section" id="contacts">
+        <div class="container">
+
+          <div class="contact-wrap">
+
+            <div class="contact-box">
+
+              <div class="section-label">Контакти</div>
+
+              <h2>
+                Є ідея?
+                <span class="gradient">Давайте створимо.</span>
+              </h2>
+
+              <p>
+                Заповніть форму або напишіть напряму.
+                Я відповім та обговоримо ваш проєкт.
+              </p>
+
+              <div class="contact-links">
+
+                <a
+                  class="contact-link"
+                  href="https://t.me/Bodya5296"
+                  target="_blank"
+                >
+                  <div>
+                    <small>Telegram</small>
+                    <strong>@Bodya5296</strong>
+                  </div>
+                  <span>↗</span>
+                </a>
+
+                <a
+                  class="contact-link"
+                  href="tel:0931594724"
+                >
+                  <div>
+                    <small>Телефон</small>
+                    <strong>093-159-47-24</strong>
+                  </div>
+                  <span>↗</span>
+                </a>
+
+                <a
+                  class="contact-link"
+                  href="mailto:unfa83371@gmail.com"
+                >
+                  <div>
+                    <small>Email</small>
+                    <strong>unfa83371@gmail.com</strong>
+                  </div>
+                  <span>↗</span>
+                </a>
+
+              </div>
+
+            </div>
+
+
+            <div class="form-box">
+
+              <h3>Залишити заявку</h3>
+
+              <p class="form-description">
+                Після натискання кнопки відкриється Telegram
+                з уже підготовленим повідомленням.
+              </p>
+
+              <form id="orderForm">
+
+                <div class="form-grid">
+
+                  <div class="field">
+                    <label for="name">Ім'я</label>
+                    <input
+                      id="name"
+                      type="text"
+                      placeholder="Ваше ім'я"
+                      required
+                    >
+                  </div>
+
+                  <div class="field">
+                    <label for="contact">Контакт</label>
+                    <input
+                      id="contact"
+                      type="text"
+                      placeholder="Telegram або телефон"
+                      required
+                    >
+                  </div>
+
+                  <div class="field">
+                    <label for="type">Що потрібно створити?</label>
+
+                    <select id="type" required>
+                      <option value="">Оберіть варіант</option>
+                      <option>Сайт-візитка</option>
+                      <option>Односторінковий сайт</option>
+                      <option>Сайт для бізнесу</option>
+                      <option>Багатосторінковий сайт</option>
+                      <option>Інтернет-магазин</option>
+                      <option>Редизайн</option>
+                    </select>
+                  </div>
+
+                  <div class="field">
+                    <label for="budget">Орієнтовний бюджет</label>
+
+                    <select id="budget">
+                      <option value="">Оберіть бюджет</option>
+                      <option>До 4 000 грн</option>
+                      <option>4 000–7 000 грн</option>
+                      <option>7 000–12 000 грн</option>
+                      <option>12 000+ грн</option>
+                      <option>Поки не знаю</option>
+                    </select>
+                  </div>
+
+                  <div class="field full">
+                    <label for="message">Розкажи про проєкт</label>
+
+                    <textarea
+                      id="message"
+                      placeholder="Коротко опишіть, який сайт вам потрібен..."
+                    ></textarea>
+                  </div>
+
+                </div>
+
+                <button
+                  type="submit"
+                  class="btn btn-primary form-submit"
+                >
+                  Відправити заявку в Telegram →
+                </button>
+
+              </form>
+
+            </div>
+
+          </div>
+
+        </div>
+      </section>
+
+    </main>
+
+
+    <footer>
+      <div class="container footer-inner">
+
+        <div>
+          © 2026 Vibe Studio
+        </div>
+
+        <div>
+          Сучасні сайти під ключ
+        </div>
+
+      </div>
+    </footer>
+
+  </div>
+
 
   <script>
-    const nav = document.getElementById('nav');
-    const menuBtn = document.getElementById('menuBtn');
-    menuBtn.addEventListener('click', () => nav.classList.toggle('open'));
-    document.querySelectorAll('.links a').forEach(a => a.addEventListener('click', () => nav.classList.remove('open')));
+    // Світіння за курсором на комп'ютері
+    const cursorGlow = document.getElementById("cursorGlow");
 
-    const observer = new IntersectionObserver(entries => {
-      entries.forEach(entry => {
-        if(entry.isIntersecting){
-          entry.target.classList.add('show');
-          observer.unobserve(entry.target);
-        }
-      });
-    }, {threshold:.08});
-    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+    document.addEventListener("mousemove", function(event) {
+      cursorGlow.style.left = event.clientX + "px";
+      cursorGlow.style.top = event.clientY + "px";
+    });
 
-    document.getElementById('year').textContent = new Date().getFullYear();
 
-    document.getElementById('contactForm').addEventListener('submit', function(e){
-      e.preventDefault();
-      const name = document.getElementById('name').value.trim();
-      const contact = document.getElementById('contact').value.trim();
-      const message = document.getElementById('message').value.trim();
-      const text = `Привіт! Хочу замовити сайт у Vibe Studio.%0A%0AІм'я: ${encodeURIComponent(name)}%0AКонтакт: ${encodeURIComponent(contact)}%0AЗадача: ${encodeURIComponent(message)}`;
-      window.open(`https://t.me/Bodya5296?text=${text}`, '_blank');
+    // Форма заявки
+    const orderForm = document.getElementById("orderForm");
+
+    orderForm.addEventListener("submit", function(event) {
+      event.preventDefault();
+
+      const name = document.getElementById("name").value.trim();
+      const contact = document.getElementById("contact").value.trim();
+      const type = document.getElementById("type").value;
+      const budget = document.getElementById("budget").value;
+      const message = document.getElementById("message").value.trim();
+
+      const telegramMessage =
+`Нова заявка з сайту Vibe Studio
+
+Ім'я: ${name}
+Контакт: ${contact}
+Що потрібно: ${type}
+Бюджет: ${budget || "Не вказано"}
+
+Проєкт:
+${message || "Не вказано"}`;
+
+      const telegramUrl =
+        "https://t.me/Bodya5296?text=" +
+        encodeURIComponent(telegramMessage);
+
+      window.open(telegramUrl, "_blank");
     });
   </script>
+
 </body>
 </html>
